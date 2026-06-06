@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Dampak AI terhadap Mahasiswa 2026</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/d3.v7.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Filter Data</h2>
+            </div>
+            
+            <div class="filter-group">
+                <label>Jurusan</label>
+                <select id="filter-major">
+                    <option value="Semua">Semua Jurusan</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Rentang Usia</label>
+                <select id="filter-age">
+                    <option value="Semua">Semua Usia</option>
+                    <option value="18-20 Tahun">18-20 Tahun</option>
+                    <option value="21-22 Tahun">21-22 Tahun</option>
+                    <option value=">22 Tahun">&gt; 22 Tahun</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label>Jenis Kelamin</label>
+                <select id="filter-gender">
+                    <option value="Semua">Semua</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label>Tingkat Stres</label>
+                <select id="filter-stress">
+                    <option value="Semua">Semua Tingkat</option>
+                    <option value="Rendah">Rendah</option>
+                    <option value="Sedang">Sedang</option>
+                    <option value="Tinggi">Tinggi</option>
+                </select>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <header>
+                <div>
+                    <h1>AI Impact on Student Life (2026)</h1>
+                    <p>Analisis performa akademik, efisiensi, dan perilaku mahasiswa.</p>
+                </div>
+                <button id="reset-btn" class="btn-reset" style="display: none;">Reset AI Tool</button>
+            </header>
+
+        <!-- KPI SECTION -->
+        <div class="kpi-container">
+            <div class="kpi-card">
+                <span class="kpi-title">Total Mahasiswa Terfilter</span>
+                <span class="kpi-value" id="kpi-total">0</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-title">Rata-Rata Kenaikan IPK</span>
+                <span class="kpi-value" id="kpi-gpa">0.000</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-title">Rata-Rata Waktu Hemat</span>
+                <span class="kpi-value" id="kpi-time">0 Jam</span>
+            </div>
+        </div>
+
+            <!-- TABS NAVIGATION -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="blok1">Analisis Akademik</button>
+                <button class="tab-btn" data-tab="blok2">Efisiensi & Produktivitas</button>
+                <button class="tab-btn" data-tab="blok3">Perilaku & Insight</button>
+            </div>
+
+        <!-- BLOK 1: ANALISIS AKADEMIK -->
+            <div id="blok1" class="tab-content active">
+                <div class="grid-layout">
+                    <div class="card" id="task1">
+                        <h2>1. Dampak IPK per Alat AI <small>(Klik batang untuk filter)</small></h2>
+                        <div class="chart-container"></div>
+                    </div>
+                    <div class="card" id="task2">
+                        <h2>2. Intensitas AI vs Level IPK</h2>
+                        <div class="chart-container"></div>
+                    </div>
+                    <div class="card full-width" id="task3">
+                        <h2>3. Pola Penggunaan AI Berdasarkan Jurusan</h2>
+                        <div class="chart-container"></div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- BLOK 2: EFISIENSI & PRODUKTIVITAS -->
+            <div id="blok2" class="tab-content">
+                <div class="grid-layout">
+                    <div class="card" id="task4"><h2>4. Rata-rata Jam Hemat Mingguan</h2><div class="chart-container"></div></div>
+                    <div class="card" id="task5"><h2>5. Intensitas vs Efisiensi Waktu</h2><div class="chart-container"></div></div>
+                    <div class="card" id="task6"><h2>6. Efisiensi vs Kepercayaan Karier</h2><div class="chart-container"></div></div>
+                    <div class="card" id="task7"><h2>7. Preferensi AI Berdasarkan Usia</h2><div class="chart-container"></div></div>
+                </div>
+            </div>
+
+        <!-- BLOK 3: PERILAKU, ETIKA, & INSIGHT -->
+            <div id="blok3" class="tab-content">
+                <div class="grid-layout">
+                    <div class="card" id="task8"><h2>8. Use Case vs Career Confidence</h2><div class="chart-container"></div></div>
+                    <div class="card" id="task9"><h2>9. Tingkat Kekhawatiran Etika</h2><div class="chart-container"></div></div>
+                    <div class="card full-width" id="task10">
+                        <h2>10. Identifikasi "Power User" (Waktu Hemat vs Kenaikan IPK)</h2>
+                        <div class="chart-container"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Tooltip Element -->
+    <div id="tooltip" class="tooltip"></div>
+    <script src="js/script.js"></script>
+</body>
+</html>
